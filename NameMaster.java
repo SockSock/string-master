@@ -250,21 +250,44 @@ public class NameMaster {
     public void caesarCipher() { // Doesn't work.
 
         ArrayList<Character> alphabet = new ArrayList<>();
+        int shifts;
+        int maintainer;
 
         for (char i = 'a'; i <= 'z'; i++) {
             alphabet.add(i);
         }
 
         System.out.print("Enter a phrase: ");
-        StringBuilder phrase = new StringBuilder(scanner.nextLine());
+        StringBuilder phrase = new StringBuilder(scanner.nextLine().toLowerCase());
 
-        System.out.print("Enter how many shifts you want: ");
-        int shifts = Integer.valueOf(scanner.nextLine());
+        while (true) {
+            System.out.print("Enter how many shifts you want (no more than 26): ");
+            shifts = Integer.valueOf(scanner.nextLine());
+            maintainer = shifts;
+
+            if (shifts > 26) {
+                System.out.println("It's more than 26!");
+            } else {
+                break;
+            }
+        }
 
         for (int i = 0; i < phrase.length(); i++) {
+            if (phrase.charAt(i) == 'z') {
+                phrase.setCharAt(i, 'a');
+                shifts--;
+            }
             for (int j = 0; j < alphabet.size(); j++) {
                 if (alphabet.get(j).equals(phrase.charAt(i))) {
-                    phrase.setCharAt(i, alphabet.get(j + shifts));
+                    if (j + shifts > 26) {
+                        int buffer = -1;
+                        phrase.setCharAt(i, alphabet.get(buffer + shifts));
+                    } else {
+                        phrase.setCharAt(i, alphabet.get(j + shifts));
+                    }
+                    if (shifts < maintainer) {
+                        shifts++;
+                    }
                     break;
                 }
             }
