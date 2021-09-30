@@ -247,7 +247,7 @@ public class NameMaster {
         }
     }
 
-    public void caesarCipher() {
+    public void caesarCipher() { // Doesn't work.
 
         ArrayList<Character> alphabet = new ArrayList<>();
 
@@ -262,12 +262,11 @@ public class NameMaster {
         int shifts = Integer.valueOf(scanner.nextLine());
 
         for (int i = 0; i < phrase.length(); i++) {
-            for (int j = 0; i < alphabet.size(); j++) {
+            for (int j = 0; j < alphabet.size(); j++) {
                 if (alphabet.get(j).equals(phrase.charAt(i))) {
                     phrase.setCharAt(i, alphabet.get(j + shifts));
                     break;
                 }
-                //phrase.setCharAt(i, alphabet.get(phrase.indexOf(String.valueOf(phrase.charAt(i))) + shifts));
             }
         }
 
