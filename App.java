@@ -50,7 +50,7 @@ public class App {
                 nameMaster.hangman();
             }
             if (option == 10) {
-                nameMaster.caesarCipher(); // Doesn't work.
+                nameMaster.caesarCipher();
             }
             if (option == 11) {
                 System.out.println("Bye.");
