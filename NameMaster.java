@@ -247,7 +247,7 @@ public class NameMaster {
         }
     }
 
-    public void caesarCipher() { // Doesn't work.
+    public void caesarCipher() {
 
         ArrayList<Character> alphabet = new ArrayList<>();
 
